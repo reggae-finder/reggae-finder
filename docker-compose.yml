@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  php-fpm:
+    build:
+      context: ./docker/php-fpm
+    volumes:
+      - ./packages/php:/var/www/packages
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+      - "443:443"
