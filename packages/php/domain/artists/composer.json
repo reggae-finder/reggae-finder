@@ -1,0 +1,21 @@
+{
+  "name": "reggae-finder/artists",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "require": {
+    "beberlei/assert": "^3.3",
+    "ramsey/uuid": "^4.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "phpstan/phpstan": "^0.12.87",
+    "phpmetrics/phpmetrics": "^2.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "ReggaeFinder\\Domain\\Artists\\": "src",
+      "ReggaeFinder\\Domain\\Artists\\Tests\\": "tests"
+    }
+  }
+}
