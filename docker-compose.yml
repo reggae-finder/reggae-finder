@@ -5,6 +5,7 @@ services:
       context: ./docker/php-fpm
     volumes:
       - ./packages/php:/var/www/packages
+      - ./projects/api-specifications-behat:/var/www/projects/api-specifications-behat
   nginx:
     image: nginx
     ports:

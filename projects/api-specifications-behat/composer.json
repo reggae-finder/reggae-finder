@@ -1,0 +1,10 @@
+{
+    "name": "reggae-finder/api-specifications-behat",
+    "description": "Project for testing the JSON apis",
+    "type": "project",
+    "require": {
+        "behat/behat": "^3.8",
+        "imbo/behat-api-extension": "^2.3"
+    },
+    "license": "MIT"
+}
