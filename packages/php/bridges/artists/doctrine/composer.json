@@ -1,0 +1,32 @@
+{
+  "name": "reggae-finder/artists-doctrine-bridge",
+  "description": "Doctrine integration for the artists package",
+  "license": "MIT",
+  "require": {
+    "reggae-finder/artists": "@dev",
+    "doctrine/orm": "2.8.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "phpstan/phpstan": "^0.12.87",
+    "phpmetrics/phpmetrics": "2.7.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "ReggaeFinder\\Bridges\\Artists\\Doctrine\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ReggaeFinder\\Bridges\\Artists\\Doctrine\\Tests\\": "tests"
+    }
+  },
+  "repositories":[
+    {
+      "type": "path",
+      "url": "../../../domain/artists"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable" : true
+}
