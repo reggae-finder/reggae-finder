@@ -3,11 +3,10 @@
 namespace ReggaeFinder\Domain\Artists\Tests\Commands;
 
 use PHPUnit\Framework\TestCase;
-use Ramsey\Uuid\Rfc4122\UuidV4;
-use Ramsey\Uuid\UuidInterface;
 use ReggaeFinder\Domain\Artists\Commands\NewArtistCmd;
-use ReggaeFinder\Domain\Artists\Exceptions\InvalidUuidException;
 use ReggaeFinder\Domain\Artists\ValueObjects\ArtistName;
+use ReggaeFinder\Utils\Uuid\Exceptions\InvalidUuidException;
+use ReggaeFinder\Utils\Uuid\Uuid;
 
 class NewArtistCmdTest extends TestCase
 {
@@ -30,7 +29,7 @@ class NewArtistCmdTest extends TestCase
         $cmd = new NewArtistCmd('586ae627-0292-4e84-80d8-92deac923204', 'John Holt');
         $uuid = $cmd->getUuid();
 
-        $this->assertInstanceOf(UuidInterface::class, $uuid);
+        $this->assertInstanceOf(Uuid::class, $uuid);
     }
 
     public function test_it_returns_artist_name_object()

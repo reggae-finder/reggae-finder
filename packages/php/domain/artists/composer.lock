@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7ffb66f52fc157a3188f0ad6196f306f",
+    "content-hash": "46921d0cd42cd86b2c0bdde6abb42cc9",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -297,6 +297,41 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "reggae-finder/uuid",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../../utils/uuid",
+                "reference": "661f80e9324164967936bf45d8a704d03d07a46e"
+            },
+            "require": {
+                "ramsey/uuid": "4.1.*"
+            },
+            "require-dev": {
+                "phpmetrics/phpmetrics": "2.7.*",
+                "phpstan/phpstan": "0.12.*",
+                "phpunit/phpunit": "9.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ReggaeFinder\\Utils\\Uuid\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "ReggaeFinder\\Utils\\Uuid\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A small wrapper around ramsey/uuid focused on V4",
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -2520,9 +2555,11 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "reggae-finder/uuid": 20
+    },
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
