@@ -1,1 +1,4 @@
 .idea
+
+docker/nginx/log/*
+!docker/nginx/log/.gitkeep
