@@ -3,8 +3,6 @@ services:
   php-fpm:
     build:
       context: ./docker/php-fpm
-    ports:
-      - "9000:9000"
     volumes:
       - ./packages/:/var/www/packages
       - ./projects/:/var/www/projects
