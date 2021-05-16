@@ -43,4 +43,9 @@ class UuidTest extends TestCase
 
         $this->assertEquals('586ae627-0292-4e84-80d8-92deac923204', (string)$uuid);
     }
+
+    public function test_it_can_validate_a_V4_string()
+    {
+        $result = Uuid::validate('586ae627-0292-4e84-80d8-92deac923204');
+    }
 }
