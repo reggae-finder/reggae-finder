@@ -7,8 +7,8 @@
     "doctrine/orm": "2.8.*"
   },
   "require-dev": {
-    "phpunit/phpunit": "*",
-    "phpstan/phpstan": "^0.12.87",
+    "phpunit/phpunit": "9.5.*",
+    "phpstan/phpstan": "0.12.*",
     "phpmetrics/phpmetrics": "2.7.*"
   },
   "autoload": {
