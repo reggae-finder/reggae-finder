@@ -1,0 +1,25 @@
+{
+  "name": "reggae-finder/uuid",
+  "description": "A small wrapper around ramsey/uuid focused on V4",
+  "license": "MIT",
+  "require": {
+    "ramsey/uuid": "4.1.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "9.5.*",
+    "phpstan/phpstan": "0.12.*",
+    "phpmetrics/phpmetrics": "2.7.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "ReggaeFinder\\Utils\\Uuid\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ReggaeFinder\\Utils\\Uuid\\Tests\\": "tests"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable" : true
+}
