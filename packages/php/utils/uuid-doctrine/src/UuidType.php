@@ -9,37 +9,16 @@ use ReggaeFinder\Utils\Uuid\Uuid;
 
 class UuidType extends Type
 {
-    /**
-     * @var string
-     */
-    const NAME = 'uuid';
+    public const NAME = 'uuid';
 
-    /**
-     * {@inheritdoc}
-     *
-     * @param array $fieldDeclaration
-     * @param AbstractPlatform $platform
-     */
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
-        return $platform->getBinaryTypeDeclarationSQL(
-            [
-                'length' => '16',
-                'fixed' => true,
-            ]
-        );
+        return $platform->getBinaryTypeDeclarationSQL([
+            'length' => '16',
+            'fixed' => true,
+        ]);
     }
 
-    /**
-     * {@inheritdoc}
-     *
-     * @param string|Uuid|null $value
-     * @param AbstractPlatform $platform
-     *
-     * @return Uuid|null
-     *
-     * @throws ConversionException
-     */
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
         if ($value === null || $value === '') {
@@ -59,16 +38,6 @@ class UuidType extends Type
         return Uuid::fromString((string)$uuid);
     }
 
-    /**
-     * {@inheritdoc}
-     *
-     * @param Uuid|string|null $value
-     * @param AbstractPlatform $platform
-     *
-     * @return string|null
-     *
-     * @throws ConversionException
-     */
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
         if ($value === null || $value === '') {
@@ -91,23 +60,11 @@ class UuidType extends Type
         throw ConversionException::conversionFailed($value, static::NAME);
     }
 
-    /**
-     * {@inheritdoc}
-     *
-     * @return string
-     */
     public function getName()
     {
         return static::NAME;
     }
 
-    /**
-     * {@inheritdoc}
-     *
-     * @param AbstractPlatform $platform
-     *
-     * @return bool
-     */
     public function requiresSQLCommentHint(AbstractPlatform $platform)
     {
         return true;

@@ -21,7 +21,7 @@ class Uuid
             throw new InvalidUuidException(sprintf('Invalid UUID V4 given: %s', $uuid));
         }
 
-        return new self($uuid);
+        return new static($uuid);
     }
 
     public function __toString(): string
