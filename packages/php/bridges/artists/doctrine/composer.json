@@ -3,12 +3,13 @@
   "description": "Doctrine integration for the artists package",
   "license": "MIT",
   "require": {
+    "doctrine/orm": "2.8.*",
     "reggae-finder/artists": "@dev",
-    "doctrine/orm": "2.8.*"
+    "reggae-finder/uuid-doctrine": "@dev"
   },
   "require-dev": {
     "phpunit/phpunit": "9.5.*",
-    "phpstan/phpstan": "0.12.*",
+    "phpstan/phpstan": "0.12.87",
     "phpmetrics/phpmetrics": "2.7.*"
   },
   "autoload": {
@@ -24,7 +25,11 @@
   "repositories":[
     {
       "type": "path",
-      "url": "../../../domain/artists"
+      "url": "../../../domain/*"
+    },
+    {
+      "type": "path",
+      "url": "../../../utils/*"
     }
   ],
   "minimum-stability": "dev",

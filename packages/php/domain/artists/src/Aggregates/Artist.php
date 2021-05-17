@@ -5,6 +5,7 @@ namespace ReggaeFinder\Domain\Artists\Aggregates;
 use ReggaeFinder\Domain\Artists\Entities\ArtistAlias;
 use ReggaeFinder\Domain\Artists\Exceptions\AliasAlreadyInUseException;
 use ReggaeFinder\Domain\Artists\Exceptions\AliasIdenticalToNameException;
+use ReggaeFinder\Domain\Artists\ValueObjects\ArtistId;
 use ReggaeFinder\Domain\Artists\ValueObjects\ArtistName;
 
 class Artist
@@ -14,7 +15,10 @@ class Artist
      */
     private array $aliases = [];
 
-    public function __construct(private ArtistName $name) {}
+    public function __construct(
+        private ArtistId $id,
+        private ArtistName $name
+    ) {}
 
     public function addAlias(ArtistName $alias): void
     {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cfc4035e8de858fd3707b2ad7c798f3e",
+    "content-hash": "66287869c17274d9ce750f9f29bd0326",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1465,16 +1465,17 @@
             "dist": {
                 "type": "path",
                 "url": "../../../domain/artists",
-                "reference": "4c169662b7a5aaab4fc31a32bc06e7c41e271ba2"
+                "reference": "a0592c2992cd15dd9ece7928e463b2c65d8e9016"
             },
             "require": {
                 "beberlei/assert": "3.3.*",
-                "ramsey/uuid": "4.1.*"
+                "reggae-finder/uuid": "@dev"
             },
             "require-dev": {
                 "phpmetrics/phpmetrics": "2.7.*",
-                "phpstan/phpstan": "0.12.*",
-                "phpunit/phpunit": "9.5.*"
+                "phpstan/phpstan": "0.12.87",
+                "phpunit/phpunit": "9.5.*",
+                "reggae-finder/uuid-testing": "@dev"
             },
             "type": "library",
             "autoload": {
@@ -1491,6 +1492,77 @@
                 "MIT"
             ],
             "description": "A package modeling artists, musicians and bands",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "reggae-finder/uuid",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../../../utils/uuid",
+                "reference": "9a06bed7d5e4168d9773a640ed5eacdd431b3a76"
+            },
+            "require": {
+                "ramsey/uuid": "4.1.*"
+            },
+            "require-dev": {
+                "phpmetrics/phpmetrics": "2.7.*",
+                "phpstan/phpstan": "0.12.*",
+                "phpunit/phpunit": "9.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ReggaeFinder\\Utils\\Uuid\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "ReggaeFinder\\Utils\\Uuid\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A small wrapper around ramsey/uuid focused on V4",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "reggae-finder/uuid-doctrine",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../../../utils/uuid-doctrine",
+                "reference": "48eccf6fc6b2746f65b03935693c6dd104ff41d7"
+            },
+            "require": {
+                "doctrine/orm": "2.8.*",
+                "reggae-finder/uuid": "@dev"
+            },
+            "require-dev": {
+                "phpmetrics/phpmetrics": "2.7.*",
+                "phpstan/phpstan": "0.12.*",
+                "phpunit/phpunit": "9.5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ReggaeFinder\\Utils\\UuidDoctrine\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "ReggaeFinder\\Utils\\UuidDoctrine\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Integrate uuid in Doctrine",
             "transport-options": {
                 "relative": true
             }
@@ -4316,7 +4388,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "reggae-finder/artists": 20
+        "reggae-finder/artists": 20,
+        "reggae-finder/uuid-doctrine": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
