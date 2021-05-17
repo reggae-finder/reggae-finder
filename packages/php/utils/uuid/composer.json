@@ -1,6 +1,7 @@
 {
   "name": "reggae-finder/uuid",
   "description": "A small wrapper around ramsey/uuid focused on V4",
+  "type": "library",
   "license": "MIT",
   "require": {
     "ramsey/uuid": "4.1.*"
