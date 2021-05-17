@@ -1,0 +1,13 @@
+{
+  "name": "reggae-finder/uuid-testing",
+  "description": "utility classes and interface to test Uuid ValueObjects",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "ReggaeFinder\\Utils\\UuidTesting\\": "src"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable" : true
+}

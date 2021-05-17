@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "46921d0cd42cd86b2c0bdde6abb42cc9",
+    "content-hash": "4f66b83942a533bcbc3ca003daa319a3",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -304,7 +304,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../utils/uuid",
-                "reference": "661f80e9324164967936bf45d8a704d03d07a46e"
+                "reference": "9a06bed7d5e4168d9773a640ed5eacdd431b3a76"
             },
             "require": {
                 "ramsey/uuid": "4.1.*"
@@ -1482,6 +1482,28 @@
             "time": "2021-03-23T07:16:29+00:00"
         },
         {
+            "name": "reggae-finder/uuid-testing",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../../utils/uuid-testing",
+                "reference": "26265010dd3cb825fa0a3bb700857eba015a9f05"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ReggaeFinder\\Utils\\UuidTesting\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "utility classes and interface to test Uuid derived classes",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "sebastian/cli-parser",
             "version": "1.0.1",
             "source": {
@@ -2557,7 +2579,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "reggae-finder/uuid": 20
+        "reggae-finder/uuid": 20,
+        "reggae-finder/uuid-testing": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

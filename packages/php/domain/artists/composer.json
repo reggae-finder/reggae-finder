@@ -10,8 +10,9 @@
   },
   "require-dev": {
     "phpunit/phpunit": "9.5.*",
-    "phpstan/phpstan": "0.12.*",
-    "phpmetrics/phpmetrics": "2.7.*"
+    "phpstan/phpstan": "0.12.87",
+    "phpmetrics/phpmetrics": "2.7.*",
+    "reggae-finder/uuid-testing": "@dev"
   },
   "autoload": {
     "psr-4": {
@@ -26,7 +27,7 @@
   "repositories": [
     {
       "type": "path",
-      "url": "../../utils/uuid"
+      "url": "../../utils/*"
     }
   ]
 }

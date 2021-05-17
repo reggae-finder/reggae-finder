@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 use ReggaeFinder\Utils\Uuid\Exceptions\InvalidUuidException;
 use ReggaeFinder\Utils\Uuid\Uuid;
 
-class UuidTest extends TestCase
+class UuidTest extends TestCase implements UuidTestInterface
 {
     public function test_it_can_generate_a_valid_uuid()
     {
@@ -27,7 +27,7 @@ class UuidTest extends TestCase
     {
         $this->expectException(InvalidUuidException::class);
 
-        Uuid::fromString('de70d0ec-b4e7-11eb-affa-53ef67dc73fe');
+        Uuid::fromString(UuidTestInterface::UUID_V1);
     }
 
     public function test_cannot_pass_invalid_uuid()
@@ -48,4 +48,26 @@ class UuidTest extends TestCase
     {
         $result = Uuid::validate('586ae627-0292-4e84-80d8-92deac923204');
     }
+
+    public function test_it_cannot_be_created_from_uuid_other_than_v4()
+    {
+        // TODO: Implement test_it_cannot_be_created_from_uuid_other_than_v4() method.
+    }
+
+    public function test_it_cannot_be_created_from_non_uuid_string()
+    {
+        // TODO: Implement test_it_cannot_be_created_from_non_uuid_string() method.
+    }
+
+    public function test_it_can_validate_a_string(string $stringToBeValidated, bool $expected)
+    {
+        // TODO: Implement test_it_can_validate_a_string() method.
+    }
+
+    public function stringForUuidValidation(): array
+    {
+        // TODO: Implement stringForUuidValidation() method.
+    }
+
+
 }
