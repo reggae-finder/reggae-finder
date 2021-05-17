@@ -2,3 +2,5 @@
 
 docker/nginx/log/*
 !docker/nginx/log/.gitkeep
+
+.phpunit.result.cache
