@@ -1,0 +1,5 @@
+var/coverage
+var/phpmetrics
+vendor
+
+phpunit.xml

@@ -3,7 +3,6 @@
 namespace ReggaeFinder\Utils\Uuid;
 
 use Ramsey\Uuid\Exception\InvalidUuidStringException;
-use Ramsey\Uuid\UuidInterface;
 use ReggaeFinder\Utils\Uuid\Exceptions\InvalidUuidException;
 
 class Uuid
@@ -18,23 +17,28 @@ class Uuid
 
     public static function fromString(string $uuid): static
     {
-        try {
-            $uuidObject = \Ramsey\Uuid\Uuid::fromString($uuid);
-        } catch (InvalidUuidStringException $e) {
-            throw new InvalidUuidException($e->getMessage(), $e->getCode(), $e);
+        if (!self::validate($uuid)) {
+            throw new InvalidUuidException(sprintf('Invalid UUID V4 given: %s', $uuid));
         }
 
-        $uuidObject->getBytes();
-        $uuidVersion = $uuidObject->getVersion();
-
-        if ($uuidVersion !== \Ramsey\Uuid\Uuid::UUID_TYPE_RANDOM) {
-            throw new InvalidUuidException(sprintf('uuidV4 expected, version %s given', $uuidVersion));
-        }
         return new self($uuid);
     }
 
     public function __toString(): string
     {
         return $this->uuid;
+    }
+
+    public static function validate(string $uuid): bool
+    {
+        try {
+            $uuidObject = \Ramsey\Uuid\Uuid::fromString($uuid);
+        } catch (InvalidUuidStringException $e) {
+            return false;
+        }
+
+        $uuidVersion = $uuidObject->getVersion();
+
+        return $uuidVersion === \Ramsey\Uuid\Uuid::UUID_TYPE_RANDOM;
     }
 }

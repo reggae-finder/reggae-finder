@@ -1,0 +1,32 @@
+{
+  "name": "reggae-finder/uuid-doctrine",
+  "description": "Integrate uuid in Doctrine",
+  "license": "MIT",
+  "require": {
+    "reggae-finder/uuid": "@dev",
+    "doctrine/orm": "2.8.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "9.5.*",
+    "phpstan/phpstan": "0.12.*",
+    "phpmetrics/phpmetrics": "2.7.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "ReggaeFinder\\Utils\\UuidDoctrine\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ReggaeFinder\\Utils\\UuidDoctrine\\Tests\\": "tests"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable" : true,
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../uuid"
+    }
+  ]
+}
