@@ -4,6 +4,7 @@ namespace ReggaeFinder\Utils\UuidDoctrine;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
+use Doctrine\DBAL\Types\Type;
 use ReggaeFinder\Utils\Uuid\Uuid;
 
 class UuidType extends Type
