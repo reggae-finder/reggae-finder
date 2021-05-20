@@ -12,7 +12,7 @@ class NewArtistHandler
 
     public function handle(NewArtistCmd $cmd): void
     {
-        $artist = new Artist($cmd->getName());
+        $artist = Artist::create($cmd->getArtistId(), $cmd->getName());
 
         $this->artistRepository->add($artist);
     }
