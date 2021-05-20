@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit colors="true">
+<phpunit bootstrap="vendor/autoload.php"
+         colors="true"
+         cacheResultFile="var/.phpunit.result.cache"
+>
     <testsuites>
         <testsuite name="unit">
             <directory suffix="Test.php">tests/</directory>
         </testsuite>
     </testsuites>
+<!--    <filter>-->
+<!--        <whitelist processUncoveredFilesFromWhitelist="true">-->
+<!--            <directory suffix=".php">src</directory>-->
+<!--        </whitelist>-->
+<!--    </filter>-->
     <coverage>
         <report>
             <html outputDirectory="var/coverage/html" lowUpperBound="50" highLowerBound="90" />

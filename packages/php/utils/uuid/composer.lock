@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f9835ccc293abd9077ded9d9f0813ab8",
+    "content-hash": "036419e31e98d4843281f3a7c248d988",
     "packages": [
         {
             "name": "brick/math",
@@ -1380,6 +1380,28 @@
             "time": "2021-03-23T07:16:29+00:00"
         },
         {
+            "name": "reggae-finder/uuid-testing",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../uuid-testing",
+                "reference": "1a140d27c56520a8cc828d265ee8104672c50bbc"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ReggaeFinder\\Utils\\UuidTesting\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "utility classes and interface to test Uuid ValueObjects",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "sebastian/cli-parser",
             "version": "1.0.1",
             "source": {
@@ -2454,7 +2476,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "reggae-finder/uuid-testing": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
