@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "47486c5df8728a4baaf7e53aac9cfff2",
+    "content-hash": "c42f6afa151abf2fbd2972dd3b493c6b",
     "packages": [
         {
             "name": "brick/math",
@@ -1423,6 +1423,28 @@
                 "MIT"
             ],
             "description": "A small wrapper around ramsey/uuid focused on V4",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "reggae-finder/uuid-testing",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../uuid-testing",
+                "reference": "1a140d27c56520a8cc828d265ee8104672c50bbc"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ReggaeFinder\\Utils\\UuidTesting\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "utility classes and interface to test Uuid ValueObjects",
             "transport-options": {
                 "relative": true
             }
@@ -4248,7 +4270,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "reggae-finder/uuid": 20
+        "reggae-finder/uuid": 20,
+        "reggae-finder/uuid-testing": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

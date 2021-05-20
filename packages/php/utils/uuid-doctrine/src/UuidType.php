@@ -7,10 +7,8 @@ use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\Type;
 use ReggaeFinder\Utils\Uuid\Uuid;
 
-class UuidType extends Type
+abstract class UuidType extends Type
 {
-    public const NAME = 'uuid';
-
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
         return $platform->getBinaryTypeDeclarationSQL([
@@ -32,10 +30,10 @@ class UuidType extends Type
         try {
             $uuid = \Ramsey\Uuid\Uuid::fromBytes($value);
         } catch (\InvalidArgumentException $e) {
-            throw ConversionException::conversionFailed($value, static::NAME);
+            throw ConversionException::conversionFailed($value, $this->getName());
         }
 
-        return Uuid::fromString((string)$uuid);
+        return $this->getUuid((string)$uuid);
     }
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
@@ -57,16 +55,13 @@ class UuidType extends Type
             // Ignore the exception and pass through.
         }
 
-        throw ConversionException::conversionFailed($value, static::NAME);
-    }
-
-    public function getName()
-    {
-        return static::NAME;
+        throw ConversionException::conversionFailed($value, $this->getName());
     }
 
     public function requiresSQLCommentHint(AbstractPlatform $platform)
     {
         return true;
     }
+
+    abstract protected function getUuid(string $uuid): Uuid;
 }
