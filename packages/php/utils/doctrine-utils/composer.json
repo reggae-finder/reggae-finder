@@ -1,0 +1,19 @@
+{
+  "name": "reggae-finder/doctrine-utils",
+  "description": "Tools to help building Doctrine related classes",
+  "license": "MIT",
+  "require": {
+    "doctrine/orm": "2.8.*"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "0.12.*",
+    "phpmetrics/phpmetrics": "2.7.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "ReggaeFinder\\Utils\\DoctrineUtils\\": "src"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable" : true
+}
