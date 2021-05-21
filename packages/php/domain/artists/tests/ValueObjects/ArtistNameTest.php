@@ -12,7 +12,7 @@ class ArtistNameTest extends TestCase
     public function test_can_create_artist_name()
     {
         $name = 'John Holt';
-        $artistName = new ArtistName($name);
+        $artistName = ArtistName::create($name);
 
         $this->assertIsObject($artistName);
     }
@@ -21,20 +21,20 @@ class ArtistNameTest extends TestCase
     {
         $this->expectException(ArtistNameTooLongException::class);
 
-        new ArtistName(str_pad('john', 300, 'holt'));
+        ArtistName::create(str_pad('john', 300, 'holt'));
     }
 
     public function test_cannot_create_artist_with_short_name()
     {
         $this->expectException(ArtistNameTooShortException::class);
 
-        new ArtistName('j');
+        ArtistName::create('j');
     }
 
     public function test_extra_whitespace_are_removed()
     {
-        $nameWithSpaces = new ArtistName('   John    Holt   ');
-        $nameWithoutSpaces = new ArtistName('John Holt');
+        $nameWithSpaces = ArtistName::create('   John    Holt   ');
+        $nameWithoutSpaces = ArtistName::create('John Holt');
 
         $this->assertTrue($nameWithoutSpaces->equals($nameWithSpaces));
     }

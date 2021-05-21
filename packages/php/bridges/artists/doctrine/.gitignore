@@ -1,5 +1,8 @@
 var/coverage
 var/phpmetrics
+var/.phpunit.result.cache
+var/test_db.sqlite
+
 vendor
 
 phpunit.xml

@@ -4,6 +4,7 @@ namespace ReggaeFinder\Domain\Artists\Tests\Commands;
 
 use PHPUnit\Framework\TestCase;
 use ReggaeFinder\Domain\Artists\Commands\NewArtistCmd;
+use ReggaeFinder\Domain\Artists\ValueObjects\ArtistId;
 use ReggaeFinder\Domain\Artists\ValueObjects\ArtistName;
 use ReggaeFinder\Utils\Uuid\Exceptions\InvalidUuidException;
 use ReggaeFinder\Utils\Uuid\Uuid;
@@ -24,12 +25,12 @@ class NewArtistCmdTest extends TestCase
         $cmd = new NewArtistCmd('de70d0ec-b4e7-11eb-affa-53ef67dc73fe', 'John Holt');
     }
 
-    public function test_it_returns_uuid_object()
+    public function test_it_returns_artist_id_object()
     {
         $cmd = new NewArtistCmd('586ae627-0292-4e84-80d8-92deac923204', 'John Holt');
-        $uuid = $cmd->getUuid();
+        $uuid = $cmd->getArtistId();
 
-        $this->assertInstanceOf(Uuid::class, $uuid);
+        $this->assertInstanceOf(ArtistId::class, $uuid);
     }
 
     public function test_it_returns_artist_name_object()
@@ -38,6 +39,6 @@ class NewArtistCmdTest extends TestCase
         $name = $cmd->getName();
 
         $this->assertInstanceOf(ArtistName::class, $name);
-        $this->assertTrue($name->equals(new ArtistName('John Holt')));
+        $this->assertTrue($name->equals(ArtistName::create('John Holt')));
     }
 }

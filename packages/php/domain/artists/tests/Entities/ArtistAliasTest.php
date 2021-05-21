@@ -10,7 +10,7 @@ class ArtistAliasTest extends TestCase
 {
     public function test_can_create_artist_alias()
     {
-        $artist = new ArtistAlias(new ArtistName('Freddie McGreggor'));
+        $artist = new ArtistAlias(ArtistName::create('Freddie McGreggor'));
 
         $this->assertIsObject($artist);
     }

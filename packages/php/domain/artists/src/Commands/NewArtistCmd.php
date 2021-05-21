@@ -2,25 +2,27 @@
 
 namespace ReggaeFinder\Domain\Artists\Commands;
 
+use ReggaeFinder\Domain\Artists\ValueObjects\ArtistId;
 use ReggaeFinder\Domain\Artists\ValueObjects\ArtistName;
-use ReggaeFinder\Utils\Uuid\Uuid;
 
 class NewArtistCmd
 {
-    public function __construct(
-        private string $uuid,
-        private string $name,
-    ) {
-        Uuid::fromString($this->uuid);
+    private ArtistId $artistId;
+    private ArtistName $artistName;
+
+    public function __construct(string $artistId, string $name)
+    {
+        $this->artistId = ArtistId::fromString($artistId);
+        $this->artistName = ArtistName::create($name);
     }
 
-    public function getUuid(): Uuid
+    public function getArtistId(): ArtistId
     {
-        return Uuid::fromString($this->uuid);
+        return $this->artistId;
     }
 
     public function getName(): ArtistName
     {
-        return new ArtistName($this->name);
+        return $this->artistName;
     }
 }

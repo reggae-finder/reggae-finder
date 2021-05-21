@@ -5,14 +5,14 @@ namespace ReggaeFinder\Utils\Uuid;
 use Ramsey\Uuid\Exception\InvalidUuidStringException;
 use ReggaeFinder\Utils\Uuid\Exceptions\InvalidUuidException;
 
-class Uuid
+abstract class Uuid
 {
     private function __construct(private string $uuid)
     {}
 
     public static function generate(): static
     {
-        return new self(\Ramsey\Uuid\Uuid::uuid4()->toString());
+        return new static(\Ramsey\Uuid\Uuid::uuid4()->toString());
     }
 
     public static function fromString(string $uuid): static

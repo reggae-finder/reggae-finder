@@ -8,17 +8,26 @@ use ReggaeFinder\Domain\Artists\Exceptions\AliasIdenticalToNameException;
 use ReggaeFinder\Domain\Artists\ValueObjects\ArtistId;
 use ReggaeFinder\Domain\Artists\ValueObjects\ArtistName;
 
-class Artist
+class Artist implements ArtistInterface
 {
     /**
      * @var ArtistAlias[]
      */
     private array $aliases = [];
 
-    public function __construct(
-        private ArtistId $id,
-        private ArtistName $name
-    ) {}
+    protected function __construct(protected ArtistId $artistId, protected ArtistName $name)
+    {}
+
+    public static function create(ArtistId $artistId, ArtistName $name): static
+    {
+        return new static($artistId, $name);
+    }
+
+    public function getId(): ArtistId
+    {
+        return $this->artistId;
+    }
+
 
     public function addAlias(ArtistName $alias): void
     {

@@ -1,0 +1,20 @@
+{
+  "name": "reggae-finder/doctrine-testing-utils",
+  "description": "Tools to help the tests of Doctrine related classes",
+  "license": "MIT",
+  "require": {
+    "doctrine/orm": "2.8.*"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "0.12.*",
+    "phpmetrics/phpmetrics": "2.7.*",
+    "phpunit/phpunit": "9.5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "ReggaeFinder\\Utils\\DoctrineTestingUtils\\": "src"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable" : true
+}

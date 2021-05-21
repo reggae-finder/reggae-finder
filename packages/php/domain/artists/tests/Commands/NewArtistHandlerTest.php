@@ -7,6 +7,7 @@ use ReggaeFinder\Domain\Artists\Aggregates\Artist;
 use ReggaeFinder\Domain\Artists\Commands\NewArtistCmd;
 use ReggaeFinder\Domain\Artists\Commands\NewArtistHandler;
 use ReggaeFinder\Domain\Artists\Services\ArtistRepositoryInterface;
+use ReggaeFinder\Domain\Artists\ValueObjects\ArtistId;
 use ReggaeFinder\Domain\Artists\ValueObjects\ArtistName;
 
 class NewArtistHandlerTest extends TestCase
@@ -18,7 +19,10 @@ class NewArtistHandlerTest extends TestCase
         $repo = $this->getMockBuilder(ArtistRepositoryInterface::class)->getMock();
         $repo->expects($this->once())
             ->method('add')
-            ->with(new Artist(new ArtistName('John Holt')))
+            ->with(Artist::create(
+                ArtistId::fromString('586ae627-0292-4e84-80d8-92deac923204'),
+                ArtistName::create('John Holt')
+            ))
         ;
 
         $handler = new NewArtistHandler($repo);
