@@ -7,6 +7,9 @@ use ReggaeFinder\Domain\Artists\Queries\BrowseArtistsCollection;
 use ReggaeFinder\Domain\Artists\Queries\BrowseArtistsHandlerInterface;
 use ReggaeFinder\Domain\Artists\Queries\BrowseArtistsModel;
 use ReggaeFinder\Domain\Artists\Queries\BrowseArtistsQuery;
+use ReggaeFinder\Domain\Common\ValueObjects\SortCriteria;
+use ReggaeFinder\Domain\Common\ValueObjects\SortOrder;
+use ReggaeFinder\Domain\Common\ValueObjects\SortParam;
 
 trait BrowseArtistsHandlerTestTrait
 {
@@ -30,27 +33,32 @@ trait BrowseArtistsHandlerTestTrait
     {
         $handler = $this->getHandler();
 
-        $filter = BrowseArtistFilter::create(BrowseArtistFilter::SORT_NAME, BrowseArtistFilter::SORT_ASC);
+        $filter = BrowseArtistFilter::create(SortCriteria::create(
+            SortParam::create(BrowseArtistFilter::SORT_NAME),
+            SortOrder::asc()
+        ));
         $collection = $handler->handle(BrowseArtistsQuery::create($filter));
 
-        $refName = null;
-        $artists = $collection->getArtists();
-        array_walk($artists, function(BrowseArtistsModel $artist) use (&$refName) {
-            if ($refName === null) {
+        /** @var BrowseArtistsModel $artist */
+        foreach ($collection->getArtists() as $artist) {
+            if (!isset($refName)) {
                 $refName = $artist->getName();
-                return;
+                continue;
             }
 
             $this->assertGreaterThan($refName, $artist->getName());
             $refName = $artist->getName();
-        });
+        }
     }
 
     public function test_it_can_sort_reverse_alphabetically()
     {
         $handler = $this->getHandler();
 
-        $filter = BrowseArtistFilter::create(BrowseArtistFilter::SORT_NAME, BrowseArtistFilter::SORT_DESC);
+        $filter = BrowseArtistFilter::create(SortCriteria::create(
+            SortParam::create(BrowseArtistFilter::SORT_NAME),
+            SortOrder::desc()
+        ));
         $collection = $handler->handle(BrowseArtistsQuery::create($filter));
 
         /** @var BrowseArtistsModel $artist */
