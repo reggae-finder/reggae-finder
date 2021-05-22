@@ -2,31 +2,33 @@
 
 namespace ReggaeFinder\Domain\Artists\Queries;
 
+use ReggaeFinder\Domain\Common\ValueObjects\SortCriteria;
+use ReggaeFinder\Domain\Common\ValueObjects\SortOrder;
+use ReggaeFinder\Domain\Common\ValueObjects\SortParam;
+
 class BrowseArtistFilter
 {
-    public const SORT_ASC = 'asc';
-    public const SORT_DESC = 'desc';
-
     public const SORT_NAME = 'name';
     public const SORT_DATE = 'creationDate';
 
-    private function __construct(private string $param, private string $order)
+    private function __construct(private SortCriteria $criteria)
     {}
 
-    public static function create(
-        string $param = self::SORT_DATE,
-        string $order = self::SORT_DESC,
-    ): self {
-        return new self($param, $order);
+    public static function create(?SortCriteria $criteria = null): self {
+        if ($criteria === null) {
+            $criteria = SortCriteria::create(SortParam::create(self::SORT_DATE));
+        }
+
+        return new self($criteria);
     }
 
-    public function getSortOrder()
+    public function getSortOrder(): SortOrder
     {
-        return $this->order;
+        return $this->criteria->getOrder();
     }
 
-    public function getSortParam()
+    public function getSortParam(): SortParam
     {
-        return $this->param;
+        return $this->criteria->getParam();
     }
 }

@@ -4,6 +4,7 @@
   "license": "MIT",
   "require": {
     "beberlei/assert": "3.3.*",
+    "reggae-finder/common": "@dev",
     "reggae-finder/uuid": "@dev"
   },
   "require-dev": {

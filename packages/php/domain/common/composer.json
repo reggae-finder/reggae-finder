@@ -1,0 +1,29 @@
+{
+  "name": "reggae-finder/common",
+  "description": "A package containing common business models",
+  "license": "MIT",
+  "require": {
+
+  },
+  "require-dev": {
+    "phpunit/phpunit": "9.5.*",
+    "phpstan/phpstan": "0.12.87",
+    "phpmetrics/phpmetrics": "2.7.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "ReggaeFinder\\Domain\\Common\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ReggaeFinder\\Domain\\Common\\Tests\\": "tests"
+    }
+  },
+  "repositories":[{
+    "type": "path",
+    "url": "../../{*,*/*}/*"
+  }],
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
