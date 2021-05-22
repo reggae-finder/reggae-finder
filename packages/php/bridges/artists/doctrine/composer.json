@@ -1,6 +1,6 @@
 {
   "name": "reggae-finder/artists-doctrine-bridge",
-  "description": "Doctrine integration for the artists package",
+  "description": "Doctrine integration for the reggae-finder/artists package",
   "license": "MIT",
   "require": {
     "doctrine/orm": "2.8.*",
@@ -14,6 +14,7 @@
     "phpstan/phpstan": "0.12.87",
     "phpmetrics/phpmetrics": "2.7.*",
     "phpunit/phpunit": "9.5.*",
+    "reggae-finder/artists-testing-utils": "@dev",
     "reggae-finder/doctrine-testing-utils": "@dev"
   },
   "autoload": {
@@ -27,16 +28,10 @@
       "ReggaeFinder\\Bridges\\Artists\\Doctrine\\Tests\\": "tests"
     }
   },
-  "repositories":[
-    {
-      "type": "path",
-      "url": "../../../domain/*"
-    },
-    {
-      "type": "path",
-      "url": "../../../utils/*"
-    }
-  ],
+  "repositories":[{
+    "type": "path",
+    "url": "../../../{*,*/*}/*"
+  }],
   "minimum-stability": "dev",
   "prefer-stable" : true
 }

@@ -2,7 +2,6 @@
 
 namespace ReggaeFinder\Bridges\Artists\Doctrine\Tests\Repositories;
 
-use Doctrine\DBAL\Types\Type as DoctrineType;
 use ReggaeFinder\Bridges\Artists\Doctrine\Aggregates\DoctrineArtist;
 use ReggaeFinder\Bridges\Artists\Doctrine\Fixtures\ArtistsFixtures;
 use ReggaeFinder\Bridges\Artists\Doctrine\Repositories\DoctrineArtistRepository;
@@ -20,15 +19,12 @@ class DoctrineArtistRepositoryTest extends DoctrineOrmTestCase
 
     public static function setUpBeforeClass(): void
     {
-        var_dump('setUpBeforeClass');
-        DoctrineType::addType('artist_id', ArtistIdType::class);
-        DoctrineType::addType('artist_name', ArtistNameType::class);
+        self::addType('artist_id', ArtistIdType::class);
+        self::addType('artist_name', ArtistNameType::class);
     }
-
 
     protected function setUp(): void
     {
-        var_dump('setup');
         $this->loadFixtures([new ArtistsFixtures()]);
         $this->repository = DoctrineArtistRepository::create($this->getEntityManager());
     }
