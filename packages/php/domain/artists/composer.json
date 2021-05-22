@@ -1,8 +1,6 @@
 {
   "name": "reggae-finder/artists",
   "description": "A package modeling artists, musicians and bands",
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "license": "MIT",
   "require": {
     "beberlei/assert": "3.3.*",
@@ -12,7 +10,8 @@
     "phpunit/phpunit": "9.5.*",
     "phpstan/phpstan": "0.12.87",
     "phpmetrics/phpmetrics": "2.7.*",
-    "reggae-finder/uuid-testing": "@dev"
+    "reggae-finder/uuid-testing": "@dev",
+    "php-mock/php-mock-phpunit": "^2.6"
   },
   "autoload": {
     "psr-4": {
@@ -24,10 +23,10 @@
       "ReggaeFinder\\Domain\\Artists\\Tests\\": "tests"
     }
   },
-  "repositories": [
-    {
-      "type": "path",
-      "url": "../../utils/*"
-    }
-  ]
+  "repositories":[{
+    "type": "path",
+    "url": "../../../{*,*/*}/*"
+  }],
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
