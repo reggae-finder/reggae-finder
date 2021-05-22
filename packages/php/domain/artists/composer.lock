@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9047671ab13acf557563d6c497f495c2",
+    "content-hash": "9e1be7fb3f719376f0f3bfc9371f4f87",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -303,16 +303,17 @@
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "../../utils/uuid",
-                "reference": "9a06bed7d5e4168d9773a640ed5eacdd431b3a76"
+                "url": "../../utils/uuid/uuid",
+                "reference": "f8d9c4abdcaf65e3f9115c0eb92236c8204bd4ab"
             },
             "require": {
                 "ramsey/uuid": "4.1.*"
             },
             "require-dev": {
                 "phpmetrics/phpmetrics": "2.7.*",
-                "phpstan/phpstan": "0.12.*",
-                "phpunit/phpunit": "9.5.*"
+                "phpstan/phpstan": "0.12.87",
+                "phpunit/phpunit": "9.5.*",
+                "reggae-finder/uuid-testing": "@dev"
             },
             "type": "library",
             "autoload": {
@@ -1676,8 +1677,8 @@
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "../../utils/uuid-testing",
-                "reference": "26265010dd3cb825fa0a3bb700857eba015a9f05"
+                "url": "../../utils/uuid/uuid-testing",
+                "reference": "1a140d27c56520a8cc828d265ee8104672c50bbc"
             },
             "type": "library",
             "autoload": {
@@ -1688,7 +1689,7 @@
             "license": [
                 "MIT"
             ],
-            "description": "utility classes and interface to test Uuid derived classes",
+            "description": "utility classes and interface to test Uuid ValueObjects",
             "transport-options": {
                 "relative": true
             }

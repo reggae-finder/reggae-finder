@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba1a71b448a78a9463bb3adc9db39fe0",
+    "content-hash": "00ad9f4a2acd6748a76b9f45e07041db",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -1467,7 +1467,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../domain/artists",
-                "reference": "f668de401ba8ebd8d3f2da3f5ce5350810869517"
+                "reference": "d560f3db582dde34294527ce89b142fd5d3a1be4"
             },
             "require": {
                 "beberlei/assert": "3.3.*",
@@ -1534,7 +1534,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../utils/uuid/uuid",
-                "reference": "589ed7776d8581ac1b7f889ea62ac02f2c55b98e"
+                "reference": "f8d9c4abdcaf65e3f9115c0eb92236c8204bd4ab"
             },
             "require": {
                 "ramsey/uuid": "4.1.*"
@@ -1570,7 +1570,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../utils/uuid/uuid-doctrine",
-                "reference": "fb85ec6a770f6ea642865b33cd9ec1a7b20f6962"
+                "reference": "f282e72e818c6df42e0bb3fe99b999db5c8f0f3a"
             },
             "require": {
                 "doctrine/orm": "2.8.*",
@@ -3508,7 +3508,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../utils/domain-testing/artists-testing-utils",
-                "reference": "d6cb0542b458c5c5136afaed71c796d47119f865"
+                "reference": "177286fa9569a60758480dbf77155316efcfa647"
             },
             "require": {
                 "reggae-finder/artists": "@dev"
