@@ -22,12 +22,10 @@
       "ReggaeFinder\\Utils\\UuidDoctrine\\Tests\\": "tests"
     }
   },
+  "repositories":[{
+    "type": "path",
+    "url": "../../../{*,*/*}/*"
+  }],
   "minimum-stability": "dev",
-  "prefer-stable" : true,
-  "repositories": [
-    {
-      "type": "path",
-      "url": "../*"
-    }
-  ]
+  "prefer-stable" : true
 }
