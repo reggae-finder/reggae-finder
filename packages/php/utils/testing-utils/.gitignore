@@ -1,7 +1,0 @@
-var/coverage
-var/phpmetrics
-var/.phpunit.result.cache
-
-vendor
-
-phpunit.xml
