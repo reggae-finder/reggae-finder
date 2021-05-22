@@ -44,7 +44,17 @@ abstract class DoctrineOrmTestCase extends TestCase
         return self::$entityManager;
     }
 
-    public function loadFixtures(array $fixtures): void
+    protected static function addType(string $name, string $class)
+    {
+        if (DoctrineType::hasType($name)) {
+            DoctrineType::overrideType($name, $class);
+            return;
+        }
+
+        DoctrineType::addType($name, $class);
+    }
+
+    protected function loadFixtures(array $fixtures): void
     {
         $fixturesLoader = new Loader();
         foreach ($fixtures as $fixture) {

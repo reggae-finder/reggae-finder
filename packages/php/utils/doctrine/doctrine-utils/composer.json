@@ -6,7 +6,7 @@
     "doctrine/orm": "2.8.*"
   },
   "require-dev": {
-    "phpstan/phpstan": "0.12.*",
+    "phpstan/phpstan": "0.12.87",
     "phpmetrics/phpmetrics": "2.7.*"
   },
   "autoload": {
