@@ -11,5 +11,7 @@ interface ArtistInterface
 
     public function getId(): ArtistId;
 
+    public function getName(): ArtistName;
+
     public function addAlias(ArtistName $alias): void;
 }

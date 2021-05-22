@@ -15,8 +15,12 @@ class Artist implements ArtistInterface
      */
     private array $aliases = [];
 
+    protected \DateTimeImmutable $creationDate;
+
     protected function __construct(protected ArtistId $artistId, protected ArtistName $name)
-    {}
+    {
+        $this->creationDate = new \DateTimeImmutable('@'.time());
+    }
 
     public static function create(ArtistId $artistId, ArtistName $name): static
     {
@@ -28,6 +32,15 @@ class Artist implements ArtistInterface
         return $this->artistId;
     }
 
+    public function getName(): ArtistName
+    {
+        return $this->name;
+    }
+
+    public function getCreationDate(): \DateTimeImmutable
+    {
+        return $this->creationDate;
+    }
 
     public function addAlias(ArtistName $alias): void
     {

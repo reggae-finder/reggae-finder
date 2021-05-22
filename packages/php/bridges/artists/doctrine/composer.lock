@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d26d74989caa2204c602d035ef808d56",
+    "content-hash": "ba1a71b448a78a9463bb3adc9db39fe0",
     "packages": [
         {
             "name": "beberlei/assert",
@@ -276,16 +276,16 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "1.11.0",
+            "version": "1.11.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "a9c1b59eba5a08ca2770a76eddb88922f504e8e0"
+                "reference": "9c53086695937c50c47936ed86d96150ffbcf60d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/a9c1b59eba5a08ca2770a76eddb88922f504e8e0",
-                "reference": "a9c1b59eba5a08ca2770a76eddb88922f504e8e0",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/9c53086695937c50c47936ed86d96150ffbcf60d",
+                "reference": "9c53086695937c50c47936ed86d96150ffbcf60d",
                 "shasum": ""
             },
             "require": {
@@ -355,7 +355,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/cache/issues",
-                "source": "https://github.com/doctrine/cache/tree/1.11.0"
+                "source": "https://github.com/doctrine/cache/tree/1.11.2"
             },
             "funding": [
                 {
@@ -371,7 +371,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-13T14:46:17+00:00"
+            "time": "2021-05-20T14:57:29+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -1022,16 +1022,16 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "2.8.4",
+            "version": "2.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/orm.git",
-                "reference": "a588555ecd837b8d7e89355d9a13902e54d529c7"
+                "reference": "a6577b89a2b028b79550ef58d9f272debdd75da4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/orm/zipball/a588555ecd837b8d7e89355d9a13902e54d529c7",
-                "reference": "a588555ecd837b8d7e89355d9a13902e54d529c7",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/a6577b89a2b028b79550ef58d9f272debdd75da4",
+                "reference": "a6577b89a2b028b79550ef58d9f272debdd75da4",
                 "shasum": ""
             },
             "require": {
@@ -1045,17 +1045,18 @@
                 "doctrine/inflector": "^1.4|^2.0",
                 "doctrine/instantiator": "^1.3",
                 "doctrine/lexer": "^1.0",
-                "doctrine/persistence": "^2.0",
+                "doctrine/persistence": "^2.2",
                 "ext-pdo": "*",
                 "php": "^7.2|^8.0",
-                "symfony/console": "^3.0|^4.0|^5.0"
+                "symfony/console": "^3.0|^4.0|^5.0|^6.0"
             },
             "require-dev": {
-                "doctrine/coding-standard": "^8.0",
-                "phpstan/phpstan": "^0.12.18",
+                "doctrine/coding-standard": "^9.0",
+                "phpstan/phpstan": "^0.12.83",
                 "phpunit/phpunit": "^8.5|^9.4",
-                "symfony/yaml": "^3.4|^4.0|^5.0",
-                "vimeo/psalm": "4.1.1"
+                "squizlabs/php_codesniffer": "3.6.0",
+                "symfony/yaml": "^3.4|^4.0|^5.0|^6.0",
+                "vimeo/psalm": "4.7.0"
             },
             "suggest": {
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
@@ -1103,28 +1104,29 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/orm/issues",
-                "source": "https://github.com/doctrine/orm/tree/2.8.4"
+                "source": "https://github.com/doctrine/orm/tree/2.8.5"
             },
-            "time": "2021-04-05T18:38:36+00:00"
+            "time": "2021-05-20T05:58:49+00:00"
         },
         {
             "name": "doctrine/persistence",
-            "version": "2.2.0",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/persistence.git",
-                "reference": "08d3e6e666de85c7748fa27bfd63bb15ac29eab2"
+                "reference": "d138f3ab5f761055cab1054070377cfd3222e368"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/persistence/zipball/08d3e6e666de85c7748fa27bfd63bb15ac29eab2",
-                "reference": "08d3e6e666de85c7748fa27bfd63bb15ac29eab2",
+                "url": "https://api.github.com/repos/doctrine/persistence/zipball/d138f3ab5f761055cab1054070377cfd3222e368",
+                "reference": "d138f3ab5f761055cab1054070377cfd3222e368",
                 "shasum": ""
             },
             "require": {
                 "doctrine/annotations": "^1.0",
                 "doctrine/cache": "^1.11 || ^2.0",
                 "doctrine/collections": "^1.0",
+                "doctrine/deprecations": "^0.5.3",
                 "doctrine/event-manager": "^1.0",
                 "php": "^7.1 || ^8.0",
                 "psr/cache": "^1.0|^2.0|^3.0"
@@ -1189,9 +1191,9 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/persistence/issues",
-                "source": "https://github.com/doctrine/persistence/tree/2.2.0"
+                "source": "https://github.com/doctrine/persistence/tree/2.2.1"
             },
-            "time": "2021-05-15T18:37:00+00:00"
+            "time": "2021-05-19T07:07:01+00:00"
         },
         {
             "name": "psr/cache",
@@ -1465,13 +1467,14 @@
             "dist": {
                 "type": "path",
                 "url": "../../../domain/artists",
-                "reference": "a0592c2992cd15dd9ece7928e463b2c65d8e9016"
+                "reference": "f668de401ba8ebd8d3f2da3f5ce5350810869517"
             },
             "require": {
                 "beberlei/assert": "3.3.*",
                 "reggae-finder/uuid": "@dev"
             },
             "require-dev": {
+                "php-mock/php-mock-phpunit": "^2.6",
                 "phpmetrics/phpmetrics": "2.7.*",
                 "phpstan/phpstan": "0.12.87",
                 "phpunit/phpunit": "9.5.*",
@@ -1501,15 +1504,15 @@
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "../../../utils/doctrine-utils",
-                "reference": "2763178dde5ec78477370491e42f5c39266082fd"
+                "url": "../../../utils/doctrine/doctrine-utils",
+                "reference": "b1cdbd6a8b6fb6d755c30ddb531a6bbc75408466"
             },
             "require": {
                 "doctrine/orm": "2.8.*"
             },
             "require-dev": {
                 "phpmetrics/phpmetrics": "2.7.*",
-                "phpstan/phpstan": "0.12.*"
+                "phpstan/phpstan": "0.12.87"
             },
             "type": "library",
             "autoload": {
@@ -1530,16 +1533,17 @@
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "../../../utils/uuid",
-                "reference": "9a06bed7d5e4168d9773a640ed5eacdd431b3a76"
+                "url": "../../../utils/uuid/uuid",
+                "reference": "589ed7776d8581ac1b7f889ea62ac02f2c55b98e"
             },
             "require": {
                 "ramsey/uuid": "4.1.*"
             },
             "require-dev": {
                 "phpmetrics/phpmetrics": "2.7.*",
-                "phpstan/phpstan": "0.12.*",
-                "phpunit/phpunit": "9.5.*"
+                "phpstan/phpstan": "0.12.87",
+                "phpunit/phpunit": "9.5.*",
+                "reggae-finder/uuid-testing": "@dev"
             },
             "type": "library",
             "autoload": {
@@ -1565,12 +1569,13 @@
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "../../../utils/uuid-doctrine",
-                "reference": "48eccf6fc6b2746f65b03935693c6dd104ff41d7"
+                "url": "../../../utils/uuid/uuid-doctrine",
+                "reference": "fb85ec6a770f6ea642865b33cd9ec1a7b20f6962"
             },
             "require": {
                 "doctrine/orm": "2.8.*",
-                "reggae-finder/uuid": "@dev"
+                "reggae-finder/uuid": "@dev",
+                "reggae-finder/uuid-testing": "@dev"
             },
             "require-dev": {
                 "phpmetrics/phpmetrics": "2.7.*",
@@ -1592,6 +1597,28 @@
                 "MIT"
             ],
             "description": "Integrate uuid in Doctrine",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "reggae-finder/uuid-testing",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../../../utils/uuid/uuid-testing",
+                "reference": "1a140d27c56520a8cc828d265ee8104672c50bbc"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ReggaeFinder\\Utils\\UuidTesting\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "utility classes and interface to test Uuid ValueObjects",
             "transport-options": {
                 "relative": true
             }
@@ -3476,19 +3503,45 @@
             "time": "2021-03-23T07:16:29+00:00"
         },
         {
+            "name": "reggae-finder/artists-testing-utils",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../../../utils/domain-testing/artists-testing-utils",
+                "reference": "d6cb0542b458c5c5136afaed71c796d47119f865"
+            },
+            "require": {
+                "reggae-finder/artists": "@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ReggaeFinder\\Utils\\DomainTesting\\ArtistsTestingUtils\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "utility classes and interfaces to test the artist domain",
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "reggae-finder/doctrine-testing-utils",
             "version": "dev-master",
             "dist": {
                 "type": "path",
-                "url": "../../../utils/doctrine-testing-utils",
-                "reference": "f41665aa2767e55beb1f5d88f122600e2347ff84"
+                "url": "../../../utils/doctrine/doctrine-testing-utils",
+                "reference": "6c8e8eea5cee03e92e67f851d72472f1db4fad43"
             },
             "require": {
                 "doctrine/orm": "2.8.*"
             },
             "require-dev": {
                 "phpmetrics/phpmetrics": "2.7.*",
-                "phpstan/phpstan": "0.12.*"
+                "phpstan/phpstan": "0.12.87",
+                "phpunit/phpunit": "9.5.*"
             },
             "type": "library",
             "autoload": {
@@ -4583,6 +4636,7 @@
         "reggae-finder/artists": 20,
         "reggae-finder/doctrine-utils": 20,
         "reggae-finder/uuid-doctrine": 20,
+        "reggae-finder/artists-testing-utils": 20,
         "reggae-finder/doctrine-testing-utils": 20
     },
     "prefer-stable": true,

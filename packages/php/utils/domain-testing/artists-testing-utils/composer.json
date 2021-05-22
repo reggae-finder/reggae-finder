@@ -1,0 +1,20 @@
+{
+  "name": "reggae-finder/artists-testing-utils",
+  "description": "utility classes and interfaces to test the artist domain",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "ReggaeFinder\\Utils\\DomainTesting\\ArtistsTestingUtils\\": "src"
+    }
+  },
+  "require": {
+    "reggae-finder/artists": "@dev"
+  },
+  "repositories":[{
+    "type": "path",
+    "url": "../../../{*,*/*}/*"
+  }],
+  "minimum-stability": "dev",
+  "prefer-stable" : true
+}
