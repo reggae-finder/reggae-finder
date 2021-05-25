@@ -1,13 +1,16 @@
 version: '3.9'
 volumes:
+  # Use this volume to store your dependencies management tools' caches
+  # PHP: https://getcomposer.org/doc/06-config.md#cache-dir
+  #      https://getcomposer.org/doc/03-cli.md#composer-cache-dir
   vendors_cache:
 services:
-  php-fpm:
+  php-packages:
+    user: operator
     build:
-      context: ./docker/php-fpm
+      context: ./docker/php-packages
     volumes:
-      - "./packages/:/var/www/packages"
-      - "./projects/:/var/www/projects"
+      - "./packages/php/:/home/operator/packages"
       - "vendors_cache:/vendors_cache"
   nginx:
     image: nginx
@@ -16,7 +19,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - "./projects/backend-api-platform:/var/www/projects/backend-api-platform"
+#      - "./projects/backend-api-platform:/var/www/projects/backend-api-platform"
       - "./docker/nginx/log/:/var/log/nginx/"
       - "./docker/nginx/conf.d/symfony.conf:/etc/nginx/conf.d/default.conf"
       - "./docker/nginx/nginx.conf:/etc/nginx/nginx.conf"
