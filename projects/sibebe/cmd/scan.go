@@ -25,7 +25,7 @@ import (
 // 	"path/filepath"
 // 	"strings"
 
-    "github.com/ktom/sibebe/php/composer"
+    "github.com/ktom/sibebe/php"
 
 	"github.com/spf13/cobra"
 )
@@ -41,20 +41,18 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("scan called")
-		composer.Toto()
 
 		content, err := ioutil.ReadFile("/home/klein/reggae-finder/packages/php/bridges/artists/doctrine/composer.json")
         if err != nil {
             log.Fatal(err)
         }
 
-		var cj composer.ComposerJson
+		var cj php.ComposerJson
 
         err = json.Unmarshal(content, &cj)
         if err != nil {
             log.Fatal(err)
         }
-        cj.PrintComposer()
 
 
 

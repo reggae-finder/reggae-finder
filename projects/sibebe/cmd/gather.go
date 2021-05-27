@@ -1,11 +1,10 @@
 package cmd
 
 import (
-    "fmt"
-
+    "log"
     "github.com/spf13/cobra"
 
-    "github.com/ktom/sibebe/php/composer"
+    "github.com/ktom/sibebe/sibebe"
 )
 
 var gatherCmd = &cobra.Command{
@@ -13,16 +12,9 @@ var gatherCmd = &cobra.Command{
     Short: "Gather dependencies from all packages",
     Long: `Long desc`,
     Run: func(cmd *cobra.Command, args []string) {
-        jsons := composer.FindComposerJsons("/home/klein/reggae-finder")
-
-        var req = make(composer.ComposerRequirement)
-        for _, composer_json := range jsons {
-            req = req.Merge(composer_json.Require)
-            req = req.Merge(composer_json.RequireDev)
+        if err := sibebe.Gather(); err != nil {
+            log.Fatal(err)
         }
-
-        fmt.Println(req)
-        return
     },
 }
 
