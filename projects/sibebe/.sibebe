@@ -1,0 +1,13 @@
+work_dir: /home/klein/reggae-finder
+
+languages:
+  - php
+#  - javascript
+
+php:
+  paths:
+    - packages
+  actions:
+    - clear_vendor
+    - composer_install
+    - phpunit

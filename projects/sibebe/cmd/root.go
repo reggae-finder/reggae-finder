@@ -1,28 +1,15 @@
-/*
-Copyright © 2021 NAME HERE <EMAIL ADDRESS>
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package cmd
 
 import (
 	"fmt"
-	"os"
+	"log"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	homedir "github.com/mitchellh/go-homedir"
+	"github.com/ktom/sibebe/php"
+	"github.com/ktom/sibebe/sibebe"
+	"github.com/ktom/sibebe/utils"
 )
 
 var cfgFile string
@@ -46,38 +33,55 @@ func Execute() {
 }
 
 func init() {
-	cobra.OnInitialize(initConfig)
+	cobra.OnInitialize(initConfig, initSibebe)
 
 	// Here you will define your flags and configuration settings.
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.
 
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.sibebe.yaml)")
+	rootCmd.PersistentFlags().BoolP("verbose", "v", false, "display more info")
+	viper.BindPFlag("verbose", rootCmd.PersistentFlags().Lookup("verbose"))
 
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
-// initConfig reads in config file and ENV variables if set.
+func initSibebe() {
+    viperConfig := viper.GetViper()
+
+    config := new(sibebe.SibebeViperConfig)
+    config.Setup(viperConfig)
+
+    collector := sibebe.LanguagePackFactoriesCollector{}
+    collector.AddFactory("php", php.GetFactory())
+
+    sibebe.Setup(config, collector)
+}
+
 func initConfig() {
+    execDir := utils.GetExecDir()
+
 	if cfgFile != "" {
 		// Use config file from the flag.
 		viper.SetConfigFile(cfgFile)
 	} else {
-		// Find home directory.
-		home, err := homedir.Dir()
-		cobra.CheckErr(err)
-
-		// Search config in home directory with name ".sibebe" (without extension).
-		viper.AddConfigPath(home)
+		viper.AddConfigPath(execDir)
 		viper.SetConfigName(".sibebe")
 	}
 
-	viper.AutomaticEnv() // read in environment variables that match
+    viper.SetConfigType("yaml")
+	viper.SetEnvPrefix("SIBEBE")
+    viper.AutomaticEnv()
 
 	// If a config file is found, read it in.
-	if err := viper.ReadInConfig(); err == nil {
-		fmt.Fprintln(os.Stderr, "Using config file:", viper.ConfigFileUsed())
+	err := viper.ReadInConfig()
+	if err != nil {
+	    log.Fatal(err)
 	}
+
+    if viper.GetBool("verbose") {
+        fmt.Println("Using config file: "+ viper.ConfigFileUsed())
+    }
 }
