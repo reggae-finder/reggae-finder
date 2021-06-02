@@ -3,6 +3,8 @@ package php
 import (
     "fmt"
     "os"
+
+    "github.com/ktom/sibebe/sibebe"
 )
 
 func (p PhpPack) DumpGlobal(global fmt.Stringer, path string) error {
@@ -19,5 +21,8 @@ func (p PhpPack) DumpGlobal(global fmt.Stringer, path string) error {
     }
 
     f.Sync()
+
+    sibebe.PrintVerbose("Dumped global dependencies in "+ path)
+
     return nil
 }

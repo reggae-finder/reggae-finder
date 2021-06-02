@@ -40,6 +40,7 @@ func init() {
 	// will be global for your application.
 
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.sibebe.yaml)")
+
 	rootCmd.PersistentFlags().BoolP("verbose", "v", false, "display more info")
 	viper.BindPFlag("verbose", rootCmd.PersistentFlags().Lookup("verbose"))
 
@@ -49,15 +50,14 @@ func init() {
 }
 
 func initSibebe() {
-    viperConfig := viper.GetViper()
-
-    config := new(sibebe.SibebeViperConfig)
-    config.Setup(viperConfig)
+    config := sibebe.NewSibebeViperConfig(viper.GetViper())
 
     collector := sibebe.LanguagePackFactoriesCollector{}
     collector.AddFactory("php", php.GetFactory())
 
-    sibebe.Setup(config, collector)
+    if err := sibebe.Setup(config, collector); err != nil {
+        log.Fatal(err)
+    }
 }
 
 func initConfig() {
@@ -82,6 +82,6 @@ func initConfig() {
 	}
 
     if viper.GetBool("verbose") {
-        fmt.Println("Using config file: "+ viper.ConfigFileUsed())
+        fmt.Println("Using config file: "+ viper.ConfigFileUsed() +"\n")
     }
 }

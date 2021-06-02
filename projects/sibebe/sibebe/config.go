@@ -16,8 +16,8 @@ type SibebeViperConfig struct {
     config *viper.Viper
 }
 
-func (svc *SibebeViperConfig) Setup(config *viper.Viper) {
-    svc.config = config
+func NewSibebeViperConfig(config *viper.Viper) SibebeConfig {
+    return SibebeViperConfig{config: config}
 }
 
 func (svc SibebeViperConfig) GetWorkDir() string {
