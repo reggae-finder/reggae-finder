@@ -1,0 +1,27 @@
+{
+	"name": "reggae-finder/reggae-finder",
+	"description": "Reggae Finder",
+	"license": "MIT",
+	"require": {
+		"beberlei/assert": "3.3.*",
+		"doctrine/orm": "2.8.*",
+		"ramsey/uuid": "4.1.*",
+		"reggae-finder/artists": "@dev",
+		"reggae-finder/common": "@dev",
+		"reggae-finder/doctrine-utils": "@dev",
+		"reggae-finder/uuid": "@dev",
+		"reggae-finder/uuid-doctrine": "@dev",
+		"reggae-finder/uuid-testing": "@dev"
+	},
+	"repositories": [
+		{
+			"type": "path",
+			"url": "./packages/{*,*/*,*/*/*}/*"
+		}
+	],
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"config": {
+		"vendor-dir": "vendor/php"
+	}
+}

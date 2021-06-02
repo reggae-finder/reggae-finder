@@ -1,8 +1,7 @@
 var/coverage
 var/phpmetrics
 var/.phpunit.result.cache
-var/junit.xml
-var/testdox.html
+var/test_db.sqlite
 
 vendor
 

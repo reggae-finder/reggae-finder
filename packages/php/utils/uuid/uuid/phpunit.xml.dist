@@ -21,4 +21,10 @@
             <directory suffix=".php">src</directory>
         </include>
     </coverage>
+
+    <logging>
+        <junit outputFile="var/junit.xml"/>
+        <testdoxHtml outputFile="var/testdox.html"/>
+
+    </logging>
 </phpunit>
