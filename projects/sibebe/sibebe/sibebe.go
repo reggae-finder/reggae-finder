@@ -18,15 +18,19 @@ type Sibebe struct {
     packagesMap map[string][]string
 }
 
-func (s *Sibebe) Setup(config SibebeConfig, collector LanguagePackFactoriesCollector) {
+func (s *Sibebe) Setup(config SibebeConfig, collector LanguagePackFactoriesCollector) error {
     s.config = config
     s.collector = collector
 
-    s.initLanguagesPack()
+    if err := s.initLanguagesPack(); err != nil {
+        return err
+    }
     s.buildPackagesMap()
+
+    return nil
 }
 
-func (s *Sibebe) initLanguagesPack() {
+func (s *Sibebe) initLanguagesPack() error {
     languages := s.config.GetLanguages()
     if len(languages) == 0 {
         log.Fatal(`Error initializing languages packs
@@ -41,17 +45,40 @@ languages
     }
 
     s.packs = map[string]LanguagePack{}
+
     for _, language := range languages {
+        factory, err := s.collector.GetFactory(language)
+        if err != nil { return err }
+
         packConfig := s.config.GetPackConfig(language)
-        s.packs[language] = s.collector.GetFactory(language)(packConfig)
+        pack := factory(packConfig)
+
+        s.packs[language] = pack
     }
+
+    return nil
 }
 
-func Setup(config SibebeConfig, collector LanguagePackFactoriesCollector) { s.Setup(config, collector) }
+func (s Sibebe) GetConfig() SibebeConfig {
+    return s.config
+}
 
-func PrintVerbose(msg interface{}) {
+func Setup(config SibebeConfig, collector LanguagePackFactoriesCollector) error { return s.Setup(config, collector) }
+func GetConfig() SibebeConfig { return s.GetConfig() }
+
+func PrintVerbose(msg interface{}, args ...interface{}) {
     if s.config.IsVerbose() {
-        fmt.Println(msg)
+        switch message := msg.(type) {
+        case string:
+            if len(args) > 0 {
+                fmt.Printf(message, args)
+            } else {
+                fmt.Print(message)
+            }
+        default:
+            fmt.Print(append([]interface{}{message}, args...))
+        }
+        fmt.Println("")
     }
 }
 

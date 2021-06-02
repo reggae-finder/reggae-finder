@@ -12,6 +12,9 @@ type LanguagePack interface {
     BuildMap(filename string, path string) (string, bool)
     Gather(packages []string) (fmt.Stringer, error)
     DumpGlobal(global fmt.Stringer, path string) error
+    GlobalInstall(workDir string) error
+    Run(packages []string, clear bool) error
+    Update(packages []string) error
 }
 
 type LanguagePackConfig interface {
@@ -32,18 +35,10 @@ func (lpfc *LanguagePackFactoriesCollector) AddFactory(language string, factory 
     lpfc.factories[language] = factory
 }
 
-func (lpfc *LanguagePackFactoriesCollector) GetFactory(language string) LanguagePackFactory {
-    return lpfc.factories[language]
+func (lpfc *LanguagePackFactoriesCollector) GetFactory(language string) (factory LanguagePackFactory, err error) {
+    if _, ok := lpfc.factories[language]; !ok {
+        return factory, fmt.Errorf("no factory for language %s", language)
+    }
+
+    return lpfc.factories[language], nil
 }
-
-// func LanguagePackFactory(lang string) LanguagePack {
-//     switch lang {
-//         case "php":
-//             return new(php.PhpPack)
-// //         case "javascript":
-// //             return new(javascript.JavascriptPack)
-//     }
-
-//     log.Fatalf("Unsupported language %s", lang)
-//     return nil
-// }

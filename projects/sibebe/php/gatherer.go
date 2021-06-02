@@ -11,7 +11,7 @@ func (p PhpPack) Gather(packages []string) (fmt.Stringer, error) {
 
     jsons := []ComposerJson{}
     for _, path := range packages {
-        json, err := FromFile(path)
+        json, err := ComposerJsonFromFile(path)
         if (err != nil) { return nil, err }
 
         jsons = append(jsons, json)
@@ -30,31 +30,30 @@ func (p PhpPack) Gather(packages []string) (fmt.Stringer, error) {
         return nil, err
     }
 
-//     mergedRequirements := ComposerRequirement{}
-//     for _, json := range jsons {
-//         merge, err := mergedRequirements.Merge(json.Require)
-//         if err != nil {
-//             return nil, errors.New(err.Error() +" in file "+ json.Path)
-//         }
-//         mergedRequirements = merge
-//
-//         merge2, err2 := mergedRequirements.Merge(json.RequireDev)
-//         if err2 != nil {
-//             return nil, errors.New(err2.Error() +" in file "+ json.Path)
-//         }
-//         mergedRequirements = merge2
-//     }
+    mergedRequirements := ComposerRequirement{}
+    for _, requirement := range list {
+        for version, _ := range requirement.Versions {
+            mergedRequirements[requirement.PackageName] = version
+            break
+        }
+    }
+
+    repositories := []ComposerRepository{}
+    for _, path := range p.config.GetPaths() {
+        repository := ComposerRepository{Type: "path", Url: "./"+ path +"/{*,*/*,*/*/*}/*"}
+        repositories = append(repositories, repository)
+    }
 
     var global = ComposerJson{
         Name: "reggae-finder/reggae-finder",
         Description: "Reggae Finder",
         License: "MIT",
-//         Require: mergedRequirements,
+        Require: mergedRequirements,
         MinimumStability: "dev",
         PreferStable: true,
+        Config: ComposerConfig{"vendor-dir": p.config.vendors},
+        Repositories: repositories,
     }
-
-    fmt.Println(global.String())
 
     return global, nil
 }

@@ -1,9 +1,9 @@
 package php
 
-import(
-    "errors"
-    _"fmt"
+import (
     "encoding/json"
+    "errors"
+    "fmt"
     "io/ioutil"
     "log"
     "os"
@@ -24,6 +24,7 @@ type ComposerJson struct {
 	Repositories []ComposerRepository `json:"repositories,omitempty"`
 	MinimumStability string `json:"minimum-stability"`
 	PreferStable bool `json:"prefer-stable"`
+	Config ComposerConfig `json:"config,omitempty"`
 }
 
 type ComposerRequirement map[string]string
@@ -37,7 +38,7 @@ type ComposerAutoloaders map[string]ComposerAutoloader
 
 type ComposerAutoloader map[string]string
 
-
+type ComposerConfig map[string]interface{}
 
 func (cr ComposerRequirement) Merge(req ComposerRequirement) (result ComposerRequirement, err error) {
     for dep, version := range req {
@@ -71,11 +72,12 @@ func (cr ComposerRequirement) Sort() ComposerRequirement {
 
 
 
-func FromFile(path string) (c ComposerJson, err error) {
+func ComposerJsonFromFile(path string) (c ComposerJson, err error) {
     content, err := ioutil.ReadFile(path)
     if err != nil { return c, err }
 
     if err := json.Unmarshal(content, &c); err != nil {
+        fmt.Println(c)
         return c, err
     }
 
